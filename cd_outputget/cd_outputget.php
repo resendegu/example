@@ -26,14 +26,14 @@ if (AJAX) {
 
 
 // print a title for the table
-print_item_header("A plugin example");
+print_item_header("Output Get");
 
 if (!isset($protectedPost['SHOW'])) {
     $protectedPost['SHOW'] = 'NOSHOW';
 }
 
 // form details and tab options
-$form_name = "example";
+$form_name = "outputget";
 $table_name = $form_name;
 $tab_options = $protectedPost;
 $tab_options['form_name'] = $form_name;
@@ -42,15 +42,15 @@ $tab_options['table_name'] = $table_name;
 
 echo open_form($form_name);
 $list_fields = array(
-                    'column 1' => 'COLUMN_1',
-                    'column 2' => 'COLUMN_2');
+                    'File_Name' => 'FILE_NAME',
+                    'Output_Result' => 'OUTPUT_RESULT');
 // columns to include at any time and default columns
 $list_col_cant_del = $list_fields;
 $default_fields = $list_fields;
 
 // select columns for table display
 $sql = prepare_sql_tab($list_fields);
-$sql['SQL']  .= "FROM example WHERE (hardware_id = $systemid)";
+$sql['SQL']  .= "FROM $table_name WHERE (hardware_id = $systemid)";
 
 array_push($sql['ARG'], $systemid);
 $tab_options['ARG_SQL'] = $sql['ARG'];

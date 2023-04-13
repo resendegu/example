@@ -1,2 +1,2 @@
-25632 Plugin example
-25633 Menu example
+25632 Output Get
+25633 Output Get Menu

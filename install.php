@@ -4,22 +4,22 @@
  * for the plugin / destroy it on removal.
  */
 
- 
+
 
 /**
  * This function is called on installation and is used to 
  * create database schema for the plugin
  */
-function extension_install_example()
+function extension_install_outputget()
 {
     $commonObject = new ExtensionCommon;
 
     $commonObject -> sqlQuery(
-        "CREATE TABLE example (
-        ID INTEGER NOT NULL AUTO_INCREMENT, 
-        HARDWARE_ID INTEGER NOT NULL,
-        COLUMN_1 INTEGER NOT NULL,
-        COLUMN_2 VARCHAR(255) DEFAULT NULL,
+        "CREATE TABLE IF NOT EXISTS `outputget` (
+        ID INT(11) NOT NULL AUTO_INCREMENT, 
+        HARDWARE_ID INT(11) NOT NULL,
+        FILE_NAME VARCHAR(255) NOT NULL,
+        OUTPUT_RESULT VARCHAR(255) DEFAULT NULL,
         PRIMARY KEY (ID,HARDWARE_ID)) ENGINE=INNODB;"
     );
 }
@@ -28,16 +28,16 @@ function extension_install_example()
  * This function is called on removal and is used to 
  * destroy database schema for the plugin
  */
-function extension_delete_example()
+function extension_delete_outputget()
 {
     $commonObject = new ExtensionCommon;
-    $commonObject -> sqlQuery("DROP TABLE IF EXISTS `example`");
+    $commonObject -> sqlQuery("DROP TABLE IF EXISTS `outputget`");
 }
 
 /**
  * This function is called on plugin upgrade
  */
-function extension_upgrade_example()
+function extension_upgrade_outputget()
 {
 
 }

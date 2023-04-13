@@ -43,10 +43,10 @@
         available : needs to be the identifier without "cd_"
     -->
     <hook type="cdentry">
-        <identifier>cd_example</identifier>
+        <identifier>cd_outputget</identifier>
         <translation>25632</translation>
-        <category>other</category>
-        <available>example</available>
+        <category>teledeploy</category>
+        <available>outputget</available>
     </hook>
     <!-- 
         This node will add a new submenu inside OCS WebUI :
@@ -62,9 +62,9 @@
         identifier : (php file name needs to match identifier)
         translation : corresponding translation code for the extension's name
     -->
-    <hook type="submenu">
+    <!-- <hook type="submenu">
         <mainmenuidentifier>ms_extension</mainmenuidentifier>
         <identifier>ms_example</identifier>
         <translation>25633</translation>
-    </hook>
+    </hook> -->
 </hookstore>
