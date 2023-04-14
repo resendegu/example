@@ -15,7 +15,7 @@ function extension_install_outputget()
     $commonObject = new ExtensionCommon;
 
     $commonObject -> sqlQuery(
-        "CREATE TABLE IF NOT EXISTS `OUTPUTGET` (
+        "CREATE TABLE IF NOT EXISTS `outputget` (
         ID INT(11) NOT NULL AUTO_INCREMENT, 
         HARDWARE_ID INT(11) NOT NULL,
         FILE_NAME VARCHAR(255) NOT NULL,
@@ -31,7 +31,7 @@ function extension_install_outputget()
 function extension_delete_outputget()
 {
     $commonObject = new ExtensionCommon;
-    $commonObject -> sqlQuery("DROP TABLE IF EXISTS `OUTPUTGET`");
+    $commonObject -> sqlQuery("DROP TABLE IF EXISTS `outputget`");
 }
 
 /**

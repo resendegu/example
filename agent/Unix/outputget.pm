@@ -108,7 +108,7 @@ sub outputget_inventory_handler {
         my $content = do { local $/; <$fh> }; # ler todo o conteúdo do arquivo
         close($fh);
 
-        push @{$common->{xmltags}->{OUTPUTGET}},
+        push @{$common->{xmltags}->{outputget}},
         {
             FILE_NAME  => [$filename],
             OUTPUT_RESULT  => [$content]

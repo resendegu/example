@@ -45,7 +45,7 @@
     <hook type="cdentry">
         <identifier>cd_outputget</identifier>
         <translation>25632</translation>
-        <category>teledeploy</category>
+        <category>other</category>
         <available>outputget</available>
     </hook>
     <!-- 

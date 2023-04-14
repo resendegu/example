@@ -31,7 +31,7 @@ print_item_header("Output Get");
 if (!isset($protectedPost['SHOW']))
     $protectedPost['SHOW'] = 'NOSHOW';
     // form details and tab options
-    $form_name = "OUTPUTGET";
+    $form_name = "outputget";
     $table_name = $form_name;
     $tab_options = $protectedPost;
     $tab_options['form_name'] = $form_name;
@@ -48,7 +48,7 @@ if (!isset($protectedPost['SHOW']))
 
     // select columns for table display
     $sql = prepare_sql_tab($list_fields);
-    $sql['SQL']  .= "FROM $table_name WHERE (hardware_id = $systemid)";
+    $sql['SQL']  .= "FROM outputget WHERE (hardware_id = $systemid)";
 
     array_push($sql['ARG'], $systemid);
     $tab_options['ARG_SQL'] = $sql['ARG'];
