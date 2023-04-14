@@ -13,7 +13,7 @@ package Apache::Ocsinventory::Plugins::Outputget::Map;
 use strict;
  
 use Apache::Ocsinventory::Map;
-$DATA_MAP{example} = {
+$DATA_MAP{outputget} = {
    mask => 0,
    multi => 1,
    auto => 1,
@@ -22,8 +22,8 @@ $DATA_MAP{example} = {
    writeDiff => 0,
    cache => 0,
    fields => {
-       COLUMN_1 => {},
-       COLUMN_2 => {}
+       FILE_NAME => {},
+       OUTPUT_RESULT => {}
    }
 };
 1;
