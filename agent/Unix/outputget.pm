@@ -8,7 +8,7 @@
 ## Please refer to the General Public Licence http://www.gnu.org/ or Licence.txt**
 ################################################################################
 
-package Ocsinventory::Agent::Modules::OutputGet;
+package Ocsinventory::Agent::Modules::Outputget;
 
 
 sub new {
@@ -111,7 +111,7 @@ sub outputget_inventory_handler {
         push @{$common->{xmltags}->{OUTPUTGET}},
         {
             FILE_NAME  => [$filename],
-            OUTPUT_RESULT  => [$content],
+            OUTPUT_RESULT  => [$content]
         };
     }
 }
