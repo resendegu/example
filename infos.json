@@ -8,6 +8,6 @@
 "description" : 
     {
         "fr" : " ",
-        "en" : "Get output of commands you run with the deployment feature for example. All you need to do is to create any file under /var/lib/ocsinventory-agent/outputget/ and write the output of your command to this file. The plugin will check this directory for any files and will display the results in the OCS Interface. This is very useful for executing commands like needs-restarting -r and making filters on your OCS Database."
+        "en" : "Get output of commands you run with the deployment feature for example. All you need to do is to create any file under /var/lib/ocsinventory-agent/outputget/ and write the output of your command to this file. The plugin will check this directory for any files and will display the results in the OCS Interface. This is very useful for getting the output of commands like needs-restarting -r and making filters on your OCS Database."
     }
 }
