@@ -41,10 +41,7 @@ if (!isset($protectedPost['SHOW']))
     echo open_form($form_name);
     $list_fields = array(
                         'File_Name' => 'FILE_NAME',
-                        'Output_Result' => 'OUTPUT_RESULT',
-                        'Last_Modified' => 'LAST_MODIFIED',
-                        'Created_At' => 'CREATED_AT'
-                    );
+                        'Output_Result' => 'OUTPUT_RESULT');
     // columns to include at any time and default columns
     $list_col_cant_del = $list_fields;
     $default_fields = $list_fields;

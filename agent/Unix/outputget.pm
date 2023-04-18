@@ -82,47 +82,36 @@ sub outputget_inventory_handler {
 
     $logger->debug("Yeah you are in outputget_inventory_handler :)");
 
-    # check if directory exists, and create it if needed
+    # sub-rotina para verificar se o diretório existe e criar, se necessário
     sub check {
         my $params = shift;
         my $common = $params->{common};
 
         unless (-d "/var/lib/ocsinventory-agent/outputget") {
-            mkdir("/var/lib/ocsinventory-agent/outputget") || die "Unable to create directory /var/lib/ocsinventory-agent/outputget: $!";
+            mkdir("/var/lib/ocsinventory-agent/outputget") || die "Não foi possível criar o diretório /var/lib/ocsinventory-agent/outputget: $!";
         }
 
         $common->can_read("/var/lib/ocsinventory-agent/outputget/*");
     }
 
+    # verificar e criar diretório de saída
     check({ common => $common });
 
-    # list files
+    # listar arquivos dentro do diretório
     my @files = glob("/var/lib/ocsinventory-agent/outputget/*");
 
-    # read each file, and add info to OCS XML
+    # acessar cada arquivo, ler seu conteúdo e adicionar informações ao arquivo XML de inventário
     foreach my $file (@files) {
-        my $filename = (split('/', $file))[-1]; # get name of file
-
-        # get file stats
-        my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat($file);
-
-        # format dates
-        my $last_modified = strftime("%Y-%m-%d %H:%M:%S", localtime($mtime));
-        my $created_at = strftime("%Y-%m-%d %H:%M:%S", localtime($ctime));
-
-        $logger->debug("$filename: last modified on $last_modified, created on $created_at");
-
+        my $filename = (split('/', $file))[-1]; # extrair o nome do arquivo sem o caminho
         $logger->debug($filename);
-        open(my $fh, '<', $file) or die "Unable to open file $file: $!";
-        my $content = do { local $/; <$fh> }; # read content of file and store it
+        open(my $fh, '<', $file) or die "Não foi possível abrir o arquivo $file: $!";
+        my $content = do { local $/; <$fh> }; # ler todo o conteúdo do arquivo
         close($fh);
 
         push @{$common->{xmltags}->{OUTPUTGET}},
         {
             FILE_NAME  => [$filename],
-            OUTPUT_RESULT  => [$content],
-            LAST_MODIFIED => [$last_modified],
-            CREATED_AT => [$created_at]
+            OUTPUT_RESULT  => [$content]
         };
     }
 }

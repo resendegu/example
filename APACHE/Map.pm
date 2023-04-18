@@ -23,9 +23,7 @@ $DATA_MAP{outputget} = {
    cache => 0,
    fields => {
        FILE_NAME => {},
-       OUTPUT_RESULT => {},
-       LAST_MODIFIED => {},
-       CREATED_AT => {}
+       OUTPUT_RESULT => {}
    }
 };
 1;
